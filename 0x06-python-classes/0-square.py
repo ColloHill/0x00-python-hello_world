@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-"""Module 0-rectangle
-Defines an empty Rectangle class.
-"""
+"""Square related class"""
 
 
-class Rectangle:
-    """Empty class."""
+class Square:
+    """Defines a square."""
     pass
