@@ -34,4 +34,31 @@ class Rectangle:
         rec_str = ''
         for i in range(self.__height):
             for j in range(self.__width):
+                rec_str += str(self.print_symbol)
+            rec_str += '\n'
+        return rec_str[:-1]
+
+    def __repr__(self):
+        """Return a string representation of a Rectangle instance
+        that is able to recreate a new instance by using eval()
+        """
+        return "Rectangle({}, {})".format(self.__width, self.__height)
+
+    def __del__(self):
+        """Deletes a Rectangle instance."""
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
+
+    @property
+    def width(self):
+        """Retrieves the width of a Rectangle instance."""
+        return self.__width
+
+    @width.setter
+    def width(self, value):
+        """Sets the width of a Rectangle instance
+
+        Args:
+            value: value of the width, must be a positive integer
+        """
 
