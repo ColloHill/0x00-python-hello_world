@@ -1,14 +1,9 @@
 #!/usr/bin/python3
-"""
-Begin program - python
-"""
-import json
+"""Class to JSON"""
 
 
-def load_from_json_file(filename):
-    """
-    begin function - load a json object
-    """
-    with open(filename, encoding='utf-8', mode='r') as f:
-        text = f.read()
-        return json.loads(text)
+def class_to_json(obj):
+    """returns the dictionary description with simple data structure
+    (list, dictionary, string, integer and boolean)
+    for JSON serialization of an object"""
+    return obj.__dict__
