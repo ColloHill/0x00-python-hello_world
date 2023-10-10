@@ -1,23 +1,20 @@
 #!/usr/bin/python3
-"""Begin program - python"""
+""" Creating pascal triangle function """
 
 
-class Student:
-    """Begin program - python"""
+def pascal_triangle(n):
+    """Represent Pascal's Triangle of size n.
+    Returns a list of lists of integers representing the triangle.
+    """
+    if n <= 0:
+        return []
 
-    def __init__(self, first_name, last_name, age):
-        """Constructor"""
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age = age
-
-    def to_json(self, attrs=None):
-        """To JSON"""
-        if attrs is None:
-            return self.__dict__
-        d = {}
-        if type(attrs) == list and all(type(i) == str for i in attrs):
-            for el in attrs:
-                if el in self.__dict__:
-                    d[el] = self.__dict__[el]
-            return d
+    triangles = [[1]]
+    while len(triangles) != n:
+        tri = triangles[-1]
+        tmp = [1]
+        for i in range(len(tri) - 1):
+            tmp.append(tri[i] + tri[i + 1])
+        tmp.append(1)
+        triangles.append(tmp)
+    return triangles
